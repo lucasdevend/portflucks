@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     },
+    
     particles: {
       color: { value: "#ffffff" },
       links: {
@@ -102,3 +103,66 @@ window.addEventListener('scroll', fadeInOnScroll);
 fadeInOnScroll();
 
 // fim sobre // 
+
+
+
+  const tvElement = document.querySelector('.tv-shake');
+
+  setInterval(() => {
+    const randomX = (Math.random() - 0.5) * 1;   // -1px a 1px
+    const randomSkew = (Math.random() - 0.5) * 0.5; // -0.3deg a 0.3deg
+
+    tvElement.style.transform =
+      `translateX(${randomX}px) skewX(${randomSkew}deg)`;
+  }, 180); // velocidade da tremida
+
+
+
+  // OBSERVADOR QUE ATIVA OS ÍCONES AO ENTRAR NA TELA
+const icons = document.querySelectorAll('.tech-icons img');
+
+const observerIcons = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      icons.forEach((icon, index) => {
+        setTimeout(() => {
+          icon.classList.add("show");
+        }, index * 120); // DELAY entre cada ícone
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+observerIcons.observe(document.querySelector('.tech-icons'));
+
+
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".proj").forEach(el => observer.observe(el));
+
+const btn = document.getElementById("toggleProjects");
+const hiddenProjs = document.querySelectorAll(".proj.hidden");
+
+btn.addEventListener("click", () => {
+  const expanded = btn.classList.toggle("open");
+
+  hiddenProjs.forEach(img => {
+    img.style.display = expanded ? "block" : "none";
+
+    if (expanded) {
+      setTimeout(() => img.classList.add("show"), 10);
+    } else {
+      img.classList.remove("show");
+    }
+  });
+
+  btn.textContent = expanded ? "Ver menos" : "Ver mais";
+});
+

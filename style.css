@@ -8,7 +8,6 @@ body {
 }
 
 
-
 .inicio-box {
   margin-top: 15.0%;
   text-align: center;
@@ -22,9 +21,12 @@ body {
   height: 75.0vh;
 }
 
-.image-redes {
-  width: 50px;
-  filter: brightness(0) invert(1);
+.email {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 15px; /* opcional, só pra dar um espaço */
 }
 
 
@@ -126,55 +128,6 @@ body, html {
   opacity: 0.9;
 }
 
-/* ==== SKILLS ==== */
-.skills-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 50px;
-  gap: 20px;
-}
-
-.skill-card {
-  background: rgba(16, 40, 40, 0.05);
-  border-radius: 20px;
-  padding: 20px 30px;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 25px #003366;
-  cursor: pointer;
-  width: 120px;
-}
-
-.skill-card img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-.skill-card p {
-  font-weight: 500;
-  color: #ffffff;
-}
-
-/* Glow ao hover */
-.skill-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px #044f9b;
-}
-
-/* ==== Animação ao rolar ==== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
 /* minha trajetoria */
 .timeline-section {
   background: linear-gradient(180deg, rgba(20,20,20,0.9), rgba(10,10,10,0.8));
@@ -271,63 +224,66 @@ body, html {
   text-shadow: 0 0 10px #004080;
 }
 
+/* GRID FIXO COM 3 COLUNAS */
 .projects-container {
-  padding-top: 3vh;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 500px); /* AGORA FIXO EM 3 */
+  gap: 40px;
   justify-content: center;
-  gap: 25px;
+  margin-top: 30px;
 }
 
-.project-card {
-  background: rgba(16, 40, 40, 0.05);
-  border-radius: 20px;
-  padding: 25px;
-  width: 140px;
-  height: 140px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: #fff;
-  box-shadow: 0 0 15px #003366;
-  transition: all 0.3s ease;
+/* Estilo das imagens */
+.projects-container img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #fff;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
 }
 
-.project-card i {
-  font-size: 2.8rem;
-  color: #00aaff;
-  margin-bottom: 10px;
-  text-shadow: 0 0 8px #003366
+.projects-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(141, 211, 245, 0.6);
+  filter: brightness(1.12);
 }
 
-.project-card p {
-  font-size: 1rem;
-  font-weight: 500;
+/* Animação ao rolar */
+.proj {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
-.project-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 25px #003366;
+.proj.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  .project-card {
-    width: 120px;
-    height: 120px;
-    padding: 20px;
-  }
-
-  .projects-section h2 {
-    font-size: 1.8rem;
-  }
+.proj.hidden {
+  display: none;
 }
+
+/* Botão */
+.btn-more {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: #3a8dff;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-more:hover {
+  background: #005eff;
+}
+
 
 /* ========== RESPONSIVIDADE ========== */
 
@@ -406,4 +362,105 @@ body, html {
         margin: 6px 0;
       }
     }
+  
+    /* === Seção Tecnologias === */
+.tech-section {
+    margin-bottom: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;              /* controla a distância entre texto e TV */
+    padding: 80px 5%;
+    color: #c9d6ff;
+    flex-direction: row-reverse;
+    border-radius: 20px;
+}
 
+/* Título */
+.tech-left h2 {
+    font-size: 2.5rem;
+    color: #3a8dff;
+    margin-bottom: 20px;
+}
+
+/* Ícones */
+.tech-icons img {
+    width: 60px;
+    margin: 10px;
+    opacity: 0;
+    transform: translateX(60px);
+    filter: drop-shadow(0 0 4px #8b8e959b);
+    transition: all 0.6s ease-out;
+}
+
+.tech-icons img:hover {
+    transform: scale(1.1);
+}
+
+
+/* === TV retrô === */
+
+.tv-frame {
+    position: relative;
+    display: flex;          /* <-- garante alinhamento com flexbox */
+    justify-content: center;
+    align-items: center;
+    width: 450px;           /* tamanho fixo para manter proporção */
+    height: 450px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.tv-frame img {
+    width: 100%;            /* <-- GRUDADO, sem espaços */
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) saturate(1.1);
+    animation: crt-distort 5s infinite ease-in-out;
+}
+
+/* Scanlines */
+.tv-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.18) 0px,
+        rgba(0, 0, 0, 0.18) 1px,
+        transparent 2px,
+        transparent 3px
+    );
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+}
+
+/* EFEITO CS H2 */
+
+/* --- TÍTULO DIGITANDO --- */
+.title-typing {
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #3a8dff;
+  font-size: 2.4rem;
+  color: #3a8dff;
+  animation: typing 2.5s steps(20) forwards, blink .7s infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 240px; } /* Ajuste conforme o tamanho do texto */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* --- ÍCONES ANIMAÇÃO ENTRANDO DA DIREITA --- */
+
+.tech-icons img.show {
+  opacity: 1;
+  transform: translateX(0);
+}
