@@ -65,7 +65,50 @@ body, html {
 
 /* fim */
 
-/* ==== NAVBAR FIXA ==== */
+/* efeito no header */
+
+.scroll-text {
+  margin-top: 10%;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  /* sombra na letra */
+  text-shadow: 2px 2px 4px rgba(232, 207, 207, 0.7);
+
+  /* animações combinadas:
+      - fade: dura 2s, delay 1.3s, mantém o estado final (forwards)
+      - float: dura 2.2s, começa depois do fade (1.3s + 2s = 3.3s), roda infinitamente
+  */
+  animation: 
+    fade 2s ease 1.3s forwards,
+    float 2.2s ease-in-out 3.3s infinite;
+}
+
+/* animação de aparecer (opacity + leve subida) */
+@keyframes fade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* animação flutuante suave (somente translateY) */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(6px); }
+  100% { transform: translateY(0); }
+}
+
+/* RESPONSIVO PARA CELULAR */
+@media (max-width: 600px) {
+  .scroll-text {
+    font-size: 16px;   /* menor para telas pequenas */
+    margin-top: 27vh;  /* aproxima um pouco da foto */
+    color: #cbe9f8;
+    /* mesma combinação de animações funciona sem mudar */
+  }
+}
+
+
+/* ==== nav fixa ==== */
 .navbar {
   position: fixed;
   top: 0;
@@ -83,7 +126,7 @@ body, html {
   
 }
 
-/* ==== Nome à esquerda ==== */
+/* ==== Nome esquerda ==== */
 .logo {
   font-size: 1.6rem;
   color: rgb(13, 115, 204);
@@ -204,7 +247,7 @@ body, html {
 
 /* fim trajetoria */
 
-/* ====== SEÇÃO PROJETOS ====== */
+/* ====== sec projetos ====== */
 .projects-section {
   text-align: center;
   margin-top: 7vh;
@@ -224,7 +267,7 @@ body, html {
   text-shadow: 0 0 10px #004080;
 }
 
-/* GRID FIXO COM 3 COLUNAS */
+/* grid fixo 4 */
 .projects-container {
   display: grid;
   grid-template-columns: repeat(3, 500px); /* AGORA FIXO EM 3 */
@@ -252,13 +295,13 @@ body, html {
 }
 
 /* Animação ao rolar */
-.proj {
+.project-item {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
-.proj.show {
+.project-item.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -299,9 +342,10 @@ body, html {
 }
 
 /* Título */
-.tech-left h2 {
-    font-size: 2.5rem;
-    color: #3a8dff;
+.tech-right h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #00aaff;
     margin-bottom: 20px;
 }
 
@@ -320,9 +364,9 @@ body, html {
 }
 
 
-/* EFEITO CS H2 */
+/* efeito cs h2 */
 
-/* --- TÍTULO DIGITANDO --- */
+/* --- titulo digitando --- */
 .title-typing {
   width: 0;
   overflow: hidden;
@@ -342,7 +386,7 @@ body, html {
   50% { border-color: transparent; }
 }
 
-/* --- ÍCONES ANIMAÇÃO ENTRANDO DA DIREITA --- */
+/* --- icones animacao entrando a direita --- */
 
 .tech-icons img.show {
   opacity: 1;
@@ -351,7 +395,7 @@ body, html {
 
 
 /* =========================================================
-  RESPONSIVIDADE GLOBAL — SITE COMPLETO
+  responsi — site completo
    ========================================================= */
 
 /* ---------- Ajustes para telas até 1200px ---------- */
@@ -375,7 +419,7 @@ body, html {
 
   body { padding: 10px; }
 
-  /* NAVBAR */
+  /* navbar */
   .navbar {
     padding: 0 20px;
     height: 60px;
@@ -385,7 +429,7 @@ body, html {
     font-size: 1.3rem;
   }
 
-  /* INÍCIO */
+  /* inicio */
   .inicio-box {
     font-size: 20px;
     margin-top: 150px;
@@ -397,7 +441,7 @@ body, html {
     height: 130px;
   }
 
-  /* SOBRE */
+  /* sobre */
   .sobre-section h2 {
     font-size: 2rem;
   }
@@ -407,7 +451,7 @@ body, html {
     padding: 0 20px;
   }
 
-  /* TIMELINE */
+  /* timeline */
   .timeline {
     border-left: none;
   }
@@ -416,7 +460,7 @@ body, html {
     display: none;
   }
 
-  /* PROJETOS */
+  /* projetos */
   .projects-container {
     grid-template-columns: repeat(2, 300px);
     gap: 25px;
@@ -427,12 +471,12 @@ body, html {
     height: 250px;
   }
 
-  /* TECNOLOGIAS */
+  /* tecnologias */
+
   .tech-section {
     flex-direction: column-reverse;
     gap: 35px;
     padding: 30px 5%;
-    text-align: center;
   }
 
   .tech-icons img {
@@ -457,7 +501,7 @@ body, html {
     font-size: 1.1rem;
   }
 
-  /* INÍCIO */
+  /* inicio */
 
   .container {
     margin-top: 35vh;
@@ -479,7 +523,7 @@ body, html {
     font-size: 16px;
   }
 
-  /* SOBRE */
+  /* sobre */
   .sobre-section {
     margin-top: 35vh;
     margin-bottom: 30vh;
@@ -494,7 +538,7 @@ body, html {
     font-size: 1rem;
   }
 
-  /* PROJETOS */
+  /* projets */
   .projects-container {
     grid-template-columns: 1fr; /* 1 por linha */
   }
@@ -505,7 +549,7 @@ body, html {
     margin: auto;
   }
 
-  /* TECNOLOGIAS */
+  /* tecnologias */
   .tech-icons {
     display: flex;
     flex-wrap: wrap;
@@ -563,7 +607,7 @@ body, html {
 }
 
 /* =========================================================
-  FOOTER ANIMADO — DARK + RESPONSIVO
+    footer an e com efeito
    ========================================================= */
 
 footer {
@@ -575,7 +619,7 @@ footer {
     text-align: center;
     border-radius: 10px 10px 0 0;
 
-    /* ANIMAÇÃO DE ENTRADA */
+    /* animacao de entrada */
     opacity: 0;
     transform: translateY(40px);
     animation: footerUp 1.2s ease forwards;
@@ -593,7 +637,7 @@ footer {
     }
 }
 
-/* LINKS */
+/* links */
 .footer-links {
     display: flex;
     justify-content: center;
@@ -637,7 +681,7 @@ footer {
 }
 
 /* =========================================================
-  RESPONSIVIDADE DO FOOTER
+      respon footer
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -674,3 +718,139 @@ footer {
         padding: 25px 10px;
     }
 }
+
+/* barras com nome proj */
+
+.project-item {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+
+}
+
+.project-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-item:hover .project-title {
+    opacity: 1;
+}
+
+
+.project-item.hidden {
+  display: none !important;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@media (max-width: 600px) {
+
+  .project-item {
+    width: 90%;          /* faz o card limitar a largura corretamente */
+    margin: 0 auto 25px; /* centraliza */
+    position: relative;  /* título ficar preso ao card */
+  }
+
+  .project-item img {
+    width: 100%;         /* garante que a imagem preencha exatamente o card */
+    height: auto;
+    display: block;
+  }
+
+  .project-title {
+    width: 100%;         /* acompanha a largura do card (e não da tela) */
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    opacity: 1 !important; /*  mobile não existe hover */
+    padding: 10px 5px;
+    box-sizing: border-box; /* impede estourar por causa do padding */
+  }
+}
+
+
+/* efeito add header */
+
+.cursor {
+  color: rgba(0, 157, 255, 0.714);
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: bold;
+  animation: blink 0.9s steps(1, start) infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* fim */
+
+
+/* >>>> whats <<<<< */
+
+.whatsapp-float {
+  position: fixed;
+  width: 65px;
+  height: 65px;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 999;
+  animation: pop 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 36px;
+  height: 36px;
+}
+
+/* animação suave ao aparecer */
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+/* efeito hover */
+.whatsapp-float:hover {
+  transform: scale(1.08);
+}
+
+
+@media (max-width: 600px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 18px;
+    right: 18px;
+  }
+
+  .whatsapp-float img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+

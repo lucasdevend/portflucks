@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   items.forEach(item => observer.observe(item));
 });
 
-// sobre mim // 
+// << sobre mim >>// 
 
 const fadeElements = document.querySelectorAll('.fade-in');
 
@@ -102,23 +102,10 @@ const fadeInOnScroll = () => {
 window.addEventListener('scroll', fadeInOnScroll);
 fadeInOnScroll();
 
-// fim sobre // 
+// << fim sobre >>// 
 
 
-
-  const tvElement = document.querySelector('.tv-shake');
-
-  setInterval(() => {
-    const randomX = (Math.random() - 0.5) * 1;   // -1px a 1px
-    const randomSkew = (Math.random() - 0.5) * 0.5; // -0.3deg a 0.3deg
-
-    tvElement.style.transform =
-      `translateX(${randomX}px) skewX(${randomSkew}deg)`;
-  }, 180); // velocidade da tremida
-
-
-
-  // OBSERVADOR QUE ATIVA OS ÍCONES AO ENTRAR NA TELA
+  // >>> observador q ativa os icones ao entrar na tela <<<//
 const icons = document.querySelectorAll('.tech-icons img');
 
 const observerIcons = new IntersectionObserver(entries => {
@@ -137,6 +124,7 @@ observerIcons.observe(document.querySelector('.tech-icons'));
 
 
 
+// observa o card inteiro, não apenas a imagem
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -145,24 +133,38 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.2 });
 
-document.querySelectorAll(".proj").forEach(el => observer.observe(el));
+//  observa o container dos projetos
+document.querySelectorAll(".project-item").forEach(el => observer.observe(el));
 
+
+// botão "Ver mais"
 const btn = document.getElementById("toggleProjects");
-const hiddenProjs = document.querySelectorAll(".proj.hidden");
+//  seleciona os cards escondidos
+const hiddenProjs = document.querySelectorAll(".project-item.hidden");
 
 btn.addEventListener("click", () => {
   const expanded = btn.classList.toggle("open");
 
-  hiddenProjs.forEach(img => {
-    img.style.display = expanded ? "block" : "none";
+  // selecione os hidden ATUALMENTE escondidos
+  const hiddenProjs = document.querySelectorAll(".project-item.hidden");
 
-    if (expanded) {
-      setTimeout(() => img.classList.add("show"), 10);
-    } else {
-      img.classList.remove("show");
-    }
-  });
+  if (expanded) {
+    // abrir
+    hiddenProjs.forEach(card => {
+      card.classList.remove("hidden");
+      setTimeout(() => card.classList.add("show"), 10);
+    });
 
-  btn.textContent = expanded ? "Ver menos" : "Ver mais";
+    btn.textContent = "Ver menos";
+  } else {
+    // fechar
+    document.querySelectorAll(".project-item").forEach(card => {
+      if (!card.classList.contains("hidden") && card !== document.querySelector('.project-item:nth-child(1)') && card !== document.querySelector('.project-item:nth-child(2)') && card !== document.querySelector('.project-item:nth-child(3)')) {
+        card.classList.add("hidden");
+        card.classList.remove("show");
+      }
+    });
+
+    btn.textContent = "Ver mais";
+  }
 });
-
