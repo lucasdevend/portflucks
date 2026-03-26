@@ -124,47 +124,4 @@ observerIcons.observe(document.querySelector('.tech-icons'));
 
 
 
-// observa o card inteiro, não apenas a imagem
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.2 });
 
-//  observa o container dos projetos
-document.querySelectorAll(".project-item").forEach(el => observer.observe(el));
-
-
-// botão "Ver mais"
-const btn = document.getElementById("toggleProjects");
-//  seleciona os cards escondidos
-const hiddenProjs = document.querySelectorAll(".project-item.hidden");
-
-btn.addEventListener("click", () => {
-  const expanded = btn.classList.toggle("open");
-
-  // selecione os hidden ATUALMENTE escondidos
-  const hiddenProjs = document.querySelectorAll(".project-item.hidden");
-
-  if (expanded) {
-    // abrir
-    hiddenProjs.forEach(card => {
-      card.classList.remove("hidden");
-      setTimeout(() => card.classList.add("show"), 10);
-    });
-
-    btn.textContent = "Ver menos";
-  } else {
-    // fechar
-    document.querySelectorAll(".project-item").forEach(card => {
-      if (!card.classList.contains("hidden") && card !== document.querySelector('.project-item:nth-child(1)') && card !== document.querySelector('.project-item:nth-child(2)') && card !== document.querySelector('.project-item:nth-child(3)')) {
-        card.classList.add("hidden");
-        card.classList.remove("show");
-      }
-    });
-
-    btn.textContent = "Ver mais";
-  }
-});

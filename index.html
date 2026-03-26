@@ -59,6 +59,13 @@
     <h1 class="title">Minha Trajetoria</h1>
 
     <ol class="timeline">
+
+      <li class="timeline-item">
+        <h3>Cibersegurança</h3>
+        <h4>Cruzeiro Do Sul Virtual</h4>
+        <p class="date">Setembro de 2028</p>
+      </li>
+
       <li class="timeline-item">
         <h3>Santander Bootcamp</h3>
         <h4>Santander Open Academy</h4>
@@ -103,53 +110,89 @@
     <div class="projects-container">
 
         <div class="project-item">
-            <img class="proj" src="imgs/coleta2025-11-13 183138.png">
-            <span class="project-title">Sistema de Coleta</span>
+          <img class="proj" src="imgs/coleta2025-11-13 183138.png" alt="Sistema de Coleta">
+
+          <div class="project-info">
+              <span class="project-title">Sistema de Coleta</span>
+              <span class="project-desc">Sistema web para gestão de coleta urbana.</span>
+          </div>
         </div>
 
         <div class="project-item">
-            <img class="proj" src="imgs/advogado2025-11-13 184219.png">
-            <span class="project-title">Landing Advogado</span>
+            <img class="proj" src="imgs/advogado2025-11-13 184219.png" alt="Landing Advogado">
+
+          <div class="project-info">
+              <span class="project-title">Landing Advogado</span>
+              <span class="project-desc">Uma landing page bonita, simples e bem estruturada</span>
+          </div>
         </div>
 
         <div class="project-item">
-            <img class="proj" src="imgs/mobilad2025-11-13 184429.png">
-            <span class="project-title">Landing Mobiliados</span>
+            <img class="proj" src="imgs/mobilad2025-11-13 184429.png" alt="Landing Mobiliaria">
+
+          <div class="project-info">
+              <span class="project-title">Landing Mobiliaria</span>
+              <span class="project-desc">Um Sistema simples, que chama clientela</span>
+          </div>
         </div>
 
-        <div class="project-item hidden">
-            <img class="proj" src="imgs/otica2025-11-13 184406.png">
-            <span class="project-title">Ótica</span>
+        <div class="project-item">
+            <img class="proj" src="imgs/otica2025-11-13 184406.png" alt="Landing Otica">
+
+          <div class="project-info">
+              <span class="project-title">Ótica</span>
+              <span class="project-desc">Uma landing chamativa e interativa</span>
+          </div>
         </div>
 
-        <div class="project-item hidden">
-            <img class="proj" src="imgs/petshop2025-11-13 184311.png">
-            <span class="project-title">Petshop</span>
+        <div class="project-item">
+            <img class="proj" src="imgs/petshop2025-11-13 184311.png" alt="Landing Petshop">
+
+          <div class="project-info">
+              <span class="project-title">Petshop</span>
+              <span class="project-desc">Pagina Web interativa para clientes</span>
+          </div>
+        </div>
+      
+        <div class="project-item">
+            <img class="proj" src="imgs/listadepresem2025-11-13 191740.png" alt="Lista de Presentes">
+
+          <div class="project-info">
+              <span class="project-title">Lista de Presentes</span>
+              <span class="project-desc">Sistema de banco de dados para alunos</span>
+          </div>
+        </div>
+        
+        <div class="project-item">
+            <img class="proj" src="imgs/hamburgueria25-12-06 120149.png" alt="Menu Hamburgueria">
+
+          <div class="project-info">
+              <span class="project-title">Menu Hamburgueria</span>
+              <span class="project-desc">Sistema delivery interativo para clientes</span>
+          </div>
         </div>
 
-        <div class="project-item hidden">
-            <img class="proj" src="imgs/listadepresem2025-11-13 191740.png">
-            <span class="project-title">Lista de Presentes</span>
+        <div class="project-item">
+            <img class="proj" src="imgs/sistema-deagenda2025-12-06 120116.png" alt="Sistema de Agenda">
+
+          <div class="project-info">
+              <span class="project-title">Agenda para clientes</span>
+              <span class="project-desc">Sistema de agenda automatico para clientes</span>
+          </div>
         </div>
 
-        <div class="project-item hidden">
-            <img class="proj" src="imgs/hamburgueria25-12-06 120149.png">
-            <span class="project-title">Menu Hamburgueria</span>
-        </div>
 
-        <div class="project-item hidden">
-            <img class="proj" src="imgs/sistema-deagenda2025-12-06 120116.png">
-            <span class="project-title">Sistema de Agenda</span>
-        </div>
+        <div class="project-item">
+            <img class="proj" src="imgs/siteacai12-06 120030.png" alt="Açaiteria Menu">
 
-        <div class="project-item hidden">
-            <img class="proj" src="imgs/siteacai12-06 120030.png">
-            <span class="project-title">Açaiteria Menu</span>
+          <div class="project-info">
+              <span class="project-title">Menu Delivery</span>
+              <span class="project-desc">Sistema de delivery para acaiteria</span>
+          </div>
         </div>
+        
 
     </div>
-
-    <button id="toggleProjects" class="btn-more">Ver mais</button>
 
 </section>
 
@@ -179,9 +222,7 @@
     <!-- Footer -->
   <footer>
     <div class="footer-links">
-      <a href="arquivos/Curriculo-LucasCosta.pdf" target="_blank">📄 Ver Currículo</a>
-      <a href="https://wa.me/5511991421107?text=Ola,%20Lucas!" target="_blank">Contato</a>
-      <a href="https://www.linkedin.com/in/lucas-costa-silva-514924209/" target="_blank">LinkedIn</a>
+      <a href="arquivos/Curriculo_Lucas_Costa_TI.pdf" target="_blank">📄 Ver Currículo</a>
     </div>
     <div class="footer-copy">© 2025 Lucas Costa. Todos os direitos reservados.</div>
   </footer>
@@ -193,6 +234,19 @@
         <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
   </a>
 
+  <script>
+  const footer = document.querySelector("footer");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footer.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(footer);
+</script>
 
 
 </body>

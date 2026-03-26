@@ -248,84 +248,107 @@ body, html {
 /* fim trajetoria */
 
 /* ====== sec projetos ====== */
-.projects-section {
-  text-align: center;
-  margin-top: 7vh;
-  padding: 90px 0 90px 0;
-  background: rgba(16, 40, 40, 0.05);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 25px rgba(3, 43, 85, 0.342);
-  color: #fff;
-  border-radius: 20px;
-}
-
-.projects-section h2 {
-  font-size: 2.2rem;
-  margin-top: -3vh;
-  font-family: "Audiowide", sans-serif;
-  color: #00aaff;
-  text-shadow: 0 0 10px #004080;
-}
-
-/* grid fixo 4 */
+/* GRID – 4 POR FILEIRA */
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(3, 500px); /* AGORA FIXO EM 3 */
-  gap: 40px;
+  grid-template-columns: repeat(4, 300px);
   justify-content: center;
-  margin-top: 30px;
+  gap: 30px;
 }
 
-/* Estilo das imagens */
-.projects-container img {
-  width: 500px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
-  background: #fff;
-  display: block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-}
-
-.projects-container img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(141, 211, 245, 0.6);
-  filter: brightness(1.12);
-}
-
-/* Animação ao rolar */
+/* CARD */
 .project-item {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
 
-.project-item.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.proj.hidden {
-  display: none;
-}
-
-/* Botão */
-.btn-more {
-  margin-top: 25px;
-  padding: 12px 25px;
-  background: #3a8dff;
-  border: none;
-  color: white;
-  font-size: 18px;
-  border-radius: 8px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.btn-more:hover {
-  background: #005eff;
+/* IMAGEM */
+.project-item .proj {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
+
+/* CONTEÚDO (TÍTULO + DESCRIÇÃO) */
+.project-info {
+  position: absolute;
+  inset: 0;
+
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 20px;
+
+  transform: rotate(-45deg);
+  opacity: 0;
+
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.project-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+}
+
+.project-desc {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* HOVER – ANIMAÇÃO ORIGINAL */
+.project-item:hover {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-item:hover .proj {
+  transform: scale(0) rotate(-45deg);
+}
+
+.project-item:hover .project-info {
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1280px) {
+  .projects-container {
+    grid-template-columns: repeat(3, 300px);
+  }
+}
+
+@media (max-width: 960px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
   /* === Seção Tecnologias === */
@@ -460,28 +483,6 @@ body, html {
     display: none;
   }
 
-  /* projetos */
-  .projects-container {
-    grid-template-columns: repeat(2, 300px);
-    gap: 25px;
-  }
-
-  .projects-container img {
-    width: 300px;
-    height: 250px;
-  }
-
-  /* tecnologias */
-
-  .tech-section {
-    flex-direction: column-reverse;
-    gap: 35px;
-    padding: 30px 5%;
-  }
-
-  .tech-icons img {
-    width: 55px;
-  }
 }
 
 /* ---------- Ajustes para celular até 600px ---------- */
@@ -538,32 +539,6 @@ body, html {
     font-size: 1rem;
   }
 
-  /* projets */
-  .projects-container {
-    grid-template-columns: 1fr; /* 1 por linha */
-  }
-
-  .projects-container img {
-    width: 90%;
-    height: auto;
-    margin: auto;
-  }
-
-  /* tecnologias */
-  .tech-icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .tech-icons img {
-    width: 42px;
-  }
-
-  .tech-left h2 {
-    font-size: 1.7rem;
-  }
 
 }
 
@@ -610,171 +585,144 @@ body, html {
     footer an e com efeito
    ========================================================= */
 
-footer {
-    margin-top: 50px;
-    padding: 20px 20px;
-    background: rgba(10, 20, 35, 0.45);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(0, 140, 255, 0.25);
-    text-align: center;
-    border-radius: 10px 10px 0 0;
+/* ================= FOOTER ================= */
 
-    /* animacao de entrada */
-    opacity: 0;
-    transform: translateY(40px);
-    animation: footerUp 1.2s ease forwards;
+footer {
+  margin-top: 80px;
+  padding: 25px 20px;
+
+  background: rgba(10, 20, 35, 0.45);
+  backdrop-filter: blur(8px);
+
+  border-top: 1px solid rgba(0, 140, 255, 0.25);
+  border-radius: 10px 10px 0 0;
+
+  text-align: center;
+
+  /* estado inicial (antes de aparecer) */
+  opacity: 0;
+  transform: translateY(40px);
+
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-/* Animação suave */
-@keyframes footerUp {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ativação da animação */
+footer.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* links */
 .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
-    color: #92c8ff;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: 0.25s ease;
-    padding-bottom: 2px;
+  color: #92c8ff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s ease;
 
-    /* Glow leve */
-    text-shadow: 0 0 6px #1b6bff88;
+  text-shadow: 0 0 6px rgba(27, 107, 255, 0.5);
 }
 
-/* Hover neon */
+/* underline animado */
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3a8dff, #00e0ff);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
 .footer-links a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 12px #3a8dff, 0 0 20px #0077ff;
-    transform: translateY(-3px);
+  color: #ffffff;
+  text-shadow: 0 0 12px #3a8dff, 0 0 20px #0077ff;
+  transform: translateY(-2px);
 }
 
-/* COPYRIGHT */
+/* copyright */
 .footer-copy {
-    font-size: 0.9rem;
-    color: rgba(220, 220, 220, 0.75);
-    text-shadow: 0 0 4px #003566;
-    margin-top: 10px;
+  font-size: 0.9rem;
+  color: rgba(220, 220, 220, 0.75);
+  text-shadow: 0 0 4px #003566;
 
-    /* efeito de pulsação leve */
-    animation: pulseGlow 3s infinite ease-in-out;
+  animation: pulseGlow 3s infinite ease-in-out;
 }
 
 @keyframes pulseGlow {
-    0%, 100% { text-shadow: 0 0 5px #0066ff66; }
-    50%      { text-shadow: 0 0 12px #3a8dff;  }
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(0, 102, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 12px #3a8dff;
+  }
 }
 
-/* =========================================================
-      respon footer
-   ========================================================= */
-
+/* responsivo */
 @media (max-width: 600px) {
-
-    footer {
-        padding: 30px 15px;
-    }
-
-    .footer-links {
-        gap: 20px;
-    }
-
-    .footer-links a {
-        font-size: 1rem;
-    }
-
-    .footer-copy {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 400px) {
-
-    .footer-links {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .footer-links a {
-        font-size: 1rem;
-    }
-
-    footer {
-        padding: 25px 10px;
-    }
-}
-
-/* barras com nome proj */
-
-.project-item {
-  position: relative;
-  display: inline-block;
-  margin-right: 20px;
-
-}
-
-.project-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    background: rgba(0,0,0,0.65);
-    color: #fff;
-    font-size: 14px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project-item:hover .project-title {
-    opacity: 1;
-}
-
-
-.project-item.hidden {
-  display: none !important;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-@media (max-width: 600px) {
-
-  .project-item {
-    width: 90%;          /* faz o card limitar a largura corretamente */
-    margin: 0 auto 25px; /* centraliza */
-    position: relative;  /* título ficar preso ao card */
+  .footer-links {
+    gap: 20px;
   }
 
-  .project-item img {
-    width: 100%;         /* garante que a imagem preencha exatamente o card */
-    height: auto;
-    display: block;
+  .footer-links a {
+    font-size: 1rem;
   }
 
-  .project-title {
-    width: 100%;         /* acompanha a largura do card (e não da tela) */
-    bottom: 0;
-    left: 0;
-    font-size: 14px;
-    opacity: 1 !important; /*  mobile não existe hover */
-    padding: 10px 5px;
-    box-sizing: border-box; /* impede estourar por causa do padding */
+  .footer-copy {
+    font-size: 0.8rem;
+  }
+}
+
+
+.whatsapp-float {
+  position: fixed;              /* FICA FIXO NA TELA */
+  bottom: 25px;                 /* DISTÂNCIA DO FUNDO */
+  right: 25px;                  /* DISTÂNCIA DA DIREITA */
+
+  width: 60px;
+  height: 60px;
+
+  background-color: #25d366;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  z-index: 9999;                /* FICA ACIMA DE TUDO */
+
+  animation: pulse 1.8s infinite;
+}
+
+.whatsapp-float img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Animação de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -804,29 +752,6 @@ footer {
 /* fim */
 
 
-/* >>>> whats <<<<< */
-
-.whatsapp-float {
-  position: fixed;
-  width: 65px;
-  height: 65px;
-  bottom: 25px;
-  right: 25px;
-  background-color: #25d366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  z-index: 999;
-  animation: pop 0.3s ease;
-}
-
-.whatsapp-float img {
-  width: 36px;
-  height: 36px;
-}
-
 /* animação suave ao aparecer */
 @keyframes pop {
   0% { transform: scale(0); }
@@ -851,6 +776,6 @@ footer {
     width: 28px;
     height: 28px;
   }
-}
 
+}
 
